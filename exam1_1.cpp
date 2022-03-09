@@ -71,6 +71,13 @@ int main(){
         cout << "Please choose a card: ";
         cin >> pos >> img;
         randomCardNumber();
+        do{
+            for(int j=0; j<col; j++) cout << "-";
+            cout << "\nYou inputs are invalid! Please give a new another.\n";
+            cout << "Please choose a card: ";
+            cin >> pos >> img;
+            randomCardNumber();
+        }while(numCard=="" && cardChar=="");
         updateScreen(screen, img);
         showScreen(screen);
 //        cout << numCard<< cardChar<<  endl;
@@ -191,16 +198,20 @@ void result(string pos, string img){
         cout<< "Computer random is " << numCard << endl; 
 		
 	    if(pos == numCard && img == cardChar){
-	    	cout << "Victory!!! You can get your reward" << endl;
+            for(int j=0; j<col; j++) cout << "-";
+	    	cout << "\nVictory!!! You can get your reward" << endl;
 		}else{
-			cout << "Loose!!! You don't have any luck, So sad" << endl;
+            for(int j=0; j<col; j++) cout << "-";
+			cout << "\nLoose!!! You don't have any luck, So sad" << endl;
 		}
-		
-        do{
-            cout << "Are you want to play more?[Y/n]: ";
+
+        for(int j=0; j<col; j++) cout << "-";
+        do{ 
+            cout << "\nAre you want to play more?[Y/n]: ";
 		    cin >> con;
             if(con == "n"){
                 stop = false;
+                cout << ".\n" << ".\n" << ".\nEndGame";
             }
         }while(!(con=="Y" || con=="n"));
 	}
