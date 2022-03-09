@@ -207,7 +207,7 @@ void result(string pos, string img){
 
         for(int j=0; j<col; j++) cout << "-";
         do{ 
-            cout << "\nAre you want to play more?[Y/n]: ";
+            cout << "\nAre you want to play more?[Y/n]: "; //edit
 		    cin >> con;
             if(con == "n"){
                 stop = false;
