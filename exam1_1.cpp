@@ -64,7 +64,6 @@ int main(){
     bool screen[row][col] = {};
     string pos;
 	string img;
-    string line;
     do{	
 		srand(time(0));
         showScreen(screen);
@@ -123,7 +122,7 @@ void randomCardNumber(){
 			numCard = "K";
 			break;
 		default:
-			numCard = SSTR(numCard);
+			numCard = (char)cc + "";
 	}
 
 	
@@ -141,6 +140,37 @@ void randomCardNumber(){
 		case 3:
 			cardChar = "P";
 	}
+    string num[] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+    // char arr[13][4] = {}; // Club, Square, Heart, Pho
+    // for(int i=0; i<13; i++){
+    //     cc = rand()%13+1; //face of card prob = 1/4
+    //     for(int j=0; j<4; j++){
+    //         imgCard = rand()%4//rand number  prob 1/13
+    //         // statement for arr prop = 1/4 * 1/13 -> each of card have prob. is 1/52. 
+    //         arr[i]
+    //     }
+    // }
+
+    // int low; // 2-10
+    // int high; // J-A
+    int lh = rand()%3; // lh = 0/1 => 2- 10 (prob = 2/3), lh = 2 => J-A (prob = 1/3)
+    if(lh == 0 || lh == 1){
+        // low = rand()%9+2; //2-10
+        // numCard = (char) low;
+        //-------------------------- arr
+        // low = rand()%8;
+        numCard = num[rand()%8];
+    }else{
+        // high = rand()%4;// 0-3
+        // if(high == 0){
+        //     numCard = 'J';
+        // }else if(){
+        //     ...
+        // }
+
+        //---------------------------arr
+        numCard = num[(rand()%4)+9];
+    }
 	
 }
 void updateScreen(bool screen[row][col],string img){
